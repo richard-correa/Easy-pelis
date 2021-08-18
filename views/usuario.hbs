@@ -1,0 +1,41 @@
+<main>
+
+  <section class="py-5 text-center container">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="fw-light">Easy pelis</h1>
+        <p class="lead text-muted">Bienvenido a Easy pelis tu pagina donde podras comprar tickets para ver las peliculas en los cines que esten disponibles, ademas aprobecha el PelisPrime para poder ver las peliculas desde tu casa </p>
+      </div>
+    </div>
+  </section>
+
+  <div class="album py-5 bg-light">
+    <div class="container ">
+
+      {{#if hasMovies}}
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        {{#each mov}}
+        <div class="col ">
+          
+           <div class="card shadow-sm buttonTicket">
+            <div class="card-body">
+              <img src="{{this.imgurl}}" class="card-img-top">
+              <h5 class="card-title">{{this.name}}</h5>
+              <p class="card-text">{{this.description}}</p>
+              <a
+                href="/tickets"
+                class="btn btn-outline-warning "
+              >Comprar ticket</a>
+                
+
+            </div>
+          </div>
+        </div>
+         {{/each}}
+        {{else}}
+
+    <h1>No hay peliculas disponibles</h1>
+
+  {{/if}}
+
+</main>

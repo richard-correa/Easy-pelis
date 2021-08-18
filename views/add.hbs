@@ -1,0 +1,61 @@
+<main>
+<form id="form-container" method="post" action="{{#if EditMode }}/edit-movie{{else}}/add{{/if}}">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+       
+               <div class="card shadow">
+                   <div class="card-header text-white bg-dark"><h3 class="text-center">{{#if EditMode}}Update Movie{{else}}ADD Movie{{/if}} </h3></div>
+                   <div class="card-body">
+                    <div class="mb-3">
+                        <label for="Name" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="Name"name="name"value="{{#if EditMode}}{{movie.name}}{{/if}}">
+                      </div>
+                      <div class="mb-3">
+                        <label for="Name" class="form-label">Image Url</label>
+                        <input type="text" class="form-control" id="imgurl"name="imgurl"value="{{#if EditMode}}{{movie.imgurl}}{{/if}}">
+                      </div>
+                      <div class="form-floating">
+                        <textarea class="form-control" placeholder="Leave a comment here" id="Description"name="Description">{{#if EditMode}}{{movie.description}}{{/if}}</textarea>
+                        <label for="Description">Description</label>
+                      </div>
+                      {{#if EditMode}}
+                      <div class="col-md-4">
+                        <label for="input_Status" class="form-label">Status</label>
+                        <select id="input_Status" class="form-select"name="status">
+                          <option value="">{{#if EditMode}}{{movie.status}}{{/if}}</option>
+                            <option class="color-green" value="Active">Active </option>
+                            <option class="color-red" value="Inactive">Inactive </option>
+                        </select>
+                      </div><br>
+                      {{else}}
+                      <div class="col-md-4">
+                        <label for="input_Status" class="form-label">Status</label>
+                        <select id="input_Status" class="form-select"name="status">
+                          <option value="">Choose...</option>
+                            <option class="color-green" value="Active">Active </option>
+                        </select>
+                      </div><br>
+                      {{/if}}
+                      <div class="col-md-4">
+                        <label for="input_Categories" class="form-label">Categories</label>
+                        <select id="input_Categories" class="form-select"name="categories">
+                          <option value="">{{#if EditMode}}{{movie.categories}}{{/if}}</option>
+                            <option value="Action">Action </option>
+                            <option value="Comedy">Comedy</option>
+                            <option value="Terror">Terror</option>
+                            <option value="Suspense">Suspense </option>
+                            <option value="Documentaries">Documentaries</option>
+                        </select>
+                      </div>
+                      
+                      {{#if EditMode}}
+                      <input type="hidden"name="movieId"value="{{movie.id}}"
+                      {{/if}}<br>
+
+                      <ul class="text-center">
+                        <button class="btn btn-outline-primary"id="btn-regis">{{#if EditMode}}Update{{else}}ADD{{/if}}</button>
+                      </ul>
+               </div>
+      </form>
+</main>

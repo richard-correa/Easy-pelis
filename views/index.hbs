@@ -1,0 +1,57 @@
+
+<main>
+
+  <section class="py-5 text-center container">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="fw-light">Listado de peliculas</h1>
+        <p>
+          <a href="/add" class="btn btn-outline-primary my-2">Publicar una pelicula</a>
+         
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <div class="album py-5 bg-light">
+    <div class="container">
+
+      {{#if hasMovies}}
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        {{#each mov}}
+        <div class="col">
+          
+           <div class="card shadow-sm">
+            <div class="card-body">
+              <img src="{{this.imgurl}}" class="card-img-top">
+              <h5 class="card-title">{{this.name}}</h5>
+              <p class="card-text">{{this.description}}</p>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">{{this.categories}}</li>
+
+                <li class="list-group-item color-green">{{this.status}}</li>
+
+              </ul>
+              <a
+                href="edit-movie/{{this.id}}?edit=true"
+                class="btn btn-outline-warning"
+              >Edit</a>
+              <form class="float-end" action="delete-movie" method="post">
+                <input type="hidden" name="movieId" value="{{this.id}}" />
+                <button
+                  type="submit"
+                  class="btn btn-outline-danger"
+                >Delete</button>
+              </form>
+
+            </div>
+          </div>
+        </div>
+         {{/each}}
+        {{else}}
+
+    <h1>No hay peliculas disponibles</h1>
+
+  {{/if}}
+
+</main>

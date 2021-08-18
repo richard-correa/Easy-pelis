@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{pageTitle}}  </title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/bootstrap/bootstrap.min.css">
+</head>
+<body>
+    {{#if adminActive}}
+    <nav class="navbar navbar-expand navbar-dark bg-dark" aria-label="Second navbar example">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/index">Movie manager</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarExample02"
+                aria-controls="navbarExample02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+    
+            <div class="collapse navbar-collapse" id="navbarExample02">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link {{#if indexActive}} active {{/if}}" aria-current="page" href="/index">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{#if addActive}} active {{/if}}" href="/add">Add new movies</a>
+                    </li>
+                </ul>
+                <form>
+                    <a href="/login" class="btn btn-outline-danger">Cerrar seccion </a>
+                </form>
+            </div>
+        </div>
+    </nav>
+    {{else}}
+    {{#if userActive}}
+    <nav class="navbar navbar-expand navbar-dark bg-dark" aria-label="Second navbar example">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/usuario">Easy pelis</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarExample02"
+                aria-controls="navbarExample02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+    
+            <div class="collapse navbar-collapse" id="navbarExample02">
+                <ul class="navbar-nav me-auto">
+                    <div>
+                        <li class="nav-item margin-right">
+                            <a class="nav-link {{#if inicioActive}} active {{/if}}" aria-current="page" href="/usuario">Inicio</a>
+                        </li>
+                    </div>
+                    <li class="nav-item">
+                        <a class="nav-link {{#if favorActive}} active {{/if}}" href="/favoritos">favoritos</a>
+                    </li>
+                    
+                   <li class="nav-item">
+                        <a class="nav-link {{#if favorActive}} active {{/if}}" href="/Donaciones">Donaciones</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{#if favorActive}} active {{/if}}" href="/Compartir">Compartir</a>
+                    </li>
+                    
+                </ul>
+                 <form class="d-flex buttonTicket ">
+                        <input type="search" class="form-control " type="search" placeholder="Search" aria-label="Search">
+                    </form>
+                <form class="">
+                    <a href="/login" class="btn btn-outline-primary">Iniciar seccion </a>
+                </form>
+                
+            </div>
+        </div>
+    </nav>
+    {{else}}
+    <div class="sidenav">
+      <div class="login-main-text">
+        <h2>Easy pelis</h2>
+        <p>La mejor pagina para ver comprar oh ver tus peliculas en alta calidad</p>
+        <img src="/assets/img/titles.jpg" class="card-img-top">
+      </div>
+    </div>
+
+    {{/if}}
+    {{/if}}
+    
+    {{{body}}}
+    
+</body>
+<script src="/assets/js/bootstrap/bootstrap.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script src="/docs/5.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+</html>
